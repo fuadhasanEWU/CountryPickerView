@@ -91,7 +91,7 @@ extension CountryPickerViewController {
         }
         searchController = UISearchController(searchResultsController:  nil)
         searchController?.searchResultsUpdater = self
-        searchController?.dimsBackgroundDuringPresentation = false
+        searchController?.obscuresBackgroundDuringPresentation = false
         searchController?.hidesNavigationBarDuringPresentation = searchBarPosition == .tableViewHeader
         searchController?.definesPresentationContext = true
         searchController?.searchBar.delegate = self
@@ -102,6 +102,10 @@ extension CountryPickerViewController {
         case .navigationBar: navigationItem.titleView = searchController?.searchBar
         default: break
         }
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithDefaultBackground()
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
     }
     
     @objc private func close() {

@@ -3,6 +3,9 @@ import PackageDescription
 
 let package = Package(
     name: "CountryPickerView",
+        platforms: [
+        .iOS(.v14)  // Change this to the desired minimum version
+    ],
     products: [
         .library(name: "CountryPickerView", targets: ["CountryPickerView"])
     ],
